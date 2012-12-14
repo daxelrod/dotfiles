@@ -18,6 +18,7 @@
  "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
  "Bundle 'tpope/vim-rails.git'
  " vim-scripts repos
+ Bundle 'xoria256.vim'
  "Bundle 'L9'
  "Bundle 'FuzzyFinder'
  " non github repos
