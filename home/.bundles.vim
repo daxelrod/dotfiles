@@ -19,6 +19,7 @@
  "Bundle 'tpope/vim-rails.git'
  " vim-scripts repos
  Bundle 'xoria256.vim'
+ Bundle 'nathanaelkane/vim-indent-guides'
  "Bundle 'L9'
  "Bundle 'FuzzyFinder'
  " non github repos
