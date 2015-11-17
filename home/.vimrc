@@ -8,7 +8,7 @@ if (&t_Co == 256)
 
 	" vim-indent-guides
 	let g:indent_guides_enable_on_vim_startup = 1
-	let g:indent_guides_auto_colors = 0 
+	let g:indent_guides_auto_colors = 0
 	"hi IndentGuidesOdd ctermfg=249 guifg=#b2b2b2 ctermbg=237 guibg=#3a3a3a "StatusLineNC from xoria256
 	hi IndentGuidesEven ctermfg=247 guifg=#9e9e9e ctermbg=233 guibg=#121212 cterm=bold gui=bold "NonText from xoria256
 endif
