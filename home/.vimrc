@@ -20,6 +20,16 @@ set sw=2
 
 set title
 
+set number " Line numbers
+
+" Always keep gutter visible so that it doesn't suddenly appear when there are diffs
+" http://superuser.com/questions/558876/how-can-i-make-the-sign-column-show-up-all-the-time-even-if-no-signs-have-been-a#comment685355_558885
+autocmd BufEnter * sign define dummy
+autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
+
+" Signify settings
+let g:signify_vcs_list = [ 'git', 'perforce', 'hg' ] " Restrict list of VCSes
+
 "highlight whitespace at the ends of lines
 autocmd InsertEnter * syn clear EOLWS | syn match EOLWS excludenl /\s\+\%#\@!$/
 autocmd InsertLeave * syn clear EOLWS | syn match EOLWS excludenl /\s\+$/
