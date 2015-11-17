@@ -3,12 +3,11 @@
  set nocompatible               " be iMproved
  filetype off                   " required!
 
- set rtp+=~/.vim/bundle/vundle/
- call vundle#rc()
+ set rtp+=~/.vim/bundle/Vundle.vim
+ call vundle#begin()
 
- " let Vundle manage Vundle
- " required! 
- Bundle 'gmarik/vundle'
+ "let Vundle manage Vundle, required
+ Plugin 'VundleVim/Vundle.vim'
 
  " My Bundles here:
  "
@@ -18,14 +17,14 @@
  "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
  "Bundle 'tpope/vim-rails.git'
  " vim-scripts repos
- Bundle 'xoria256.vim'
- Bundle 'nathanaelkane/vim-indent-guides'
+ Plugin 'xoria256.vim'
+ Plugin 'nathanaelkane/vim-indent-guides'
  "Bundle 'L9'
  "Bundle 'FuzzyFinder'
  " non github repos
  "Bundle 'git://git.wincent.com/command-t.git'
  " ...
-
+ call vundle#end()            " required
  filetype plugin indent on     " required!
  "
  " Brief help
