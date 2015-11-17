@@ -16,9 +16,9 @@ if (&t_Co == 256)
 endif
 
 " indentation:
-" For now, leave tabs as tabs
-set ts=2
-set sw=2
+set ts=4
+set sw=4
+set expandtab
 
 set title
 
