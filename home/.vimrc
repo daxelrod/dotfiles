@@ -38,3 +38,10 @@ highlight EOLWS ctermbg=red guibg=red
 " I know it's blasphemous and I don't care :)
 set mouse=a
 set ttymouse=xterm2
+
+" Keep swap files isolated to their own directory
+:let homeswapdir=$HOME.'/.vim/swp'
+if !isdirectory(homeswapdir)
+	call mkdir(homeswapdir)
+endif
+execute "set directory=".homeswapdir
