@@ -20,6 +20,11 @@ set sw=2
 
 set title
 
+"highlight whitespace at the ends of lines
+autocmd InsertEnter * syn clear EOLWS | syn match EOLWS excludenl /\s\+\%#\@!$/
+autocmd InsertLeave * syn clear EOLWS | syn match EOLWS excludenl /\s\+$/
+highlight EOLWS ctermbg=red guibg=red
+
 " I know it's blasphemous and I don't care :)
 set mouse=a
 set ttymouse=xterm2
