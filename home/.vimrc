@@ -3,6 +3,8 @@ source ~/.bundles.vim
 
 " Rest of config:
 
+syntax on " Not sure why this is needed in my custom built vim 7.3 only
+
 if (&t_Co == 256)
 	colorscheme xoria256
 
