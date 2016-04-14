@@ -15,6 +15,8 @@ if (&t_Co == 256)
 	hi IndentGuidesEven ctermfg=247 guifg=#9e9e9e ctermbg=233 guibg=#121212 cterm=bold gui=bold "NonText from xoria256
 endif
 
+set backspace=indent,eol,start " backspace past everything in insert mode
+
 " indentation:
 set ts=4
 set sw=4
