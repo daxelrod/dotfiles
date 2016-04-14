@@ -21,7 +21,7 @@ set sw=4
 set expandtab
 
 set title
-
+set ruler " Line and column at bottom
 set number " Line numbers
 
 " Always keep gutter visible so that it doesn't suddenly appear when there are diffs
