@@ -49,3 +49,6 @@ if !isdirectory(homeswapdir)
 	call mkdir(homeswapdir)
 endif
 execute "set directory=".homeswapdir
+
+" Run goimports instead of gofmt on save of go files
+let g:go_fmt_command = "goimports"
