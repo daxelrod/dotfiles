@@ -5,6 +5,10 @@ source ~/.bundles.vim
 
 syntax on " Not sure why this is needed in my custom built vim 7.3 only
 
+filetype on " Enable filetype detection
+filetype indent on " Enable filetype-specific indentation
+filetype plugin on " Enable filetype-specific plugins
+
 if (&t_Co == 256)
 	colorscheme xoria256
 
