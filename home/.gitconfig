@@ -9,3 +9,6 @@
 [merge]
 	# 3-way diffs make merge conflicts much easier to reason about
 	conflictstyle = diff3
+[commit]
+	# Show diffs in commit message editor
+	verbose = true
