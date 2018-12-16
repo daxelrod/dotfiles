@@ -14,7 +14,7 @@ shopt -s checkwinsize
 __source_git_extras () {
     # Find git completion and git prompt for this OS and source them if available
 
-    if [[ -f "$(command -v xcode-select)" ]]; then
+    if command -v 'xcode-select' >/dev/null; then
         # macOS git via Xcode Tools
 
         # Find path where currently active XCode command line tools are installed
@@ -40,10 +40,39 @@ __set_prompt () {
         local username='\u@'
     fi
 
+    # Display abbreviated hostname on machine I'm physically using
+    if [[ -f ~/.homebox ]]; then
+        if [[ "$(uname -s)" == 'Darwin' ]]; then
+            local hostname=$'\xEF\xA3\xBF'; # Apple logo, in Apple fonts only
+        elif command -v lsb_release >/dev/null; then
+            case "$(lsb_release --id --short)" in
+            'Ubuntu')
+                local hostname=$'\xEF\x88\x80' # Ubuntu logo, in Ubuntu fonts only
+                ;;
+            'Fedora')
+                local hostname='ƒ'
+                ;;
+            'RedHatEnterpriseServer')
+                local hostname='🎩'
+                ;;
+            'CentOS')
+                local hostname='¢'
+                ;;
+            'Debian')
+                local hostname='꩜'
+                ;;
+             *)
+                local hostname='🐧' # It's some kind of Linux, or it wouldn't have lsb_release
+            esac
+        fi
+    else
+        local hostname='\h'
+    fi
+
     # Set variables for before and after the git prompt separately.
     # This lets us use __git_ps1 as the PROMPT_COMMAND (the only supported way to get color)
     # and also lets us fall back to just the prompt if __git_ps1 isn't available.
-    local before_git="${username}\h:\w" # user @ host : full_directory
+    local before_git="${username}${hostname}:\w" # user @ host : full_directory
     local after_git=' \$ '
 
     __source_git_extras
