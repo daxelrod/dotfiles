@@ -15,11 +15,15 @@ if (&t_Co == 256)
 	" vim-indent-guides
 	let g:indent_guides_enable_on_vim_startup = 1
 	let g:indent_guides_auto_colors = 0
-	"hi IndentGuidesOdd ctermfg=249 guifg=#b2b2b2 ctermbg=237 guibg=#3a3a3a "StatusLineNC from xoria256
+	hi IndentGuidesOdd       ctermfg=247 guifg=#d0d0d0 ctermbg=234 guibg=#1c1c1c cterm=none gui=none "Normal from xoria256 but with a ctermfg matching the even color
 	hi IndentGuidesEven ctermfg=247 guifg=#9e9e9e ctermbg=233 guibg=#121212 cterm=bold gui=bold "NonText from xoria256
 
 	" vim-numbertoggle
 	hi CursorLineNr ctermfg=15  guifg=#ffffff ctermbg=239 guibg=#4e4e4e cterm=bold gui=bold "StatusLine from xoria256, affects current line number
+
+	" visible tabs
+	set list
+	set listchars=tab:⇥\ "intended trailing space
 endif
 
 set backspace=indent,eol,start " backspace past everything in insert mode
