@@ -20,6 +20,7 @@
  Plugin 'xoria256.vim'
  Plugin 'nathanaelkane/vim-indent-guides'
  Plugin 'mhinz/vim-signify'
+ Plugin 'jeffkreeftmeijer/vim-numbertoggle'
  Plugin 'fatih/vim-go'
  "Bundle 'L9'
  "Bundle 'FuzzyFinder'
