@@ -34,6 +34,22 @@ __source_git_extras () {
     if [[ -f "${shorten_directory_path}" ]]; then source "${shorten_directory_path}"; fi
 }
 
+__exit_status () {
+    # Output the exit status of the last command surrounded by brackets in red
+    # only if the exit status was a failure
+
+    local exit_status="$?"
+    if [[ "$exit_status" -ne 0 ]]; then
+        # \x01 is \001 which is the generic readline version of the bash-specific "\[", likewise
+        # \x02 is \002 which is the generic readline version of the bash-specific "\]'
+        # Color codes must be enclosed in these so that readline knows they are zero-width.
+        # For some reason, bash isn't seeing the bash-specific codes here.
+        echo -e "\x01\033[0;91m\x02[$exit_status]\x01\033[0m\x02"
+    fi
+
+    return "$exit_status"
+}
+
 __set_prompt () {
     __source_git_extras
 
@@ -83,7 +99,7 @@ __set_prompt () {
     # This lets us use __git_ps1 as the PROMPT_COMMAND (the only supported way to get color)
     # and also lets us fall back to just the prompt if __git_ps1 isn't available.
     local before_git="${username}${hostname}:${directory}" # user @ host : directory
-    local after_git=' \$ '
+    local after_git=' $(__exit_status)\$ '
 
     # Check whether __source_git_extras succeeded in finding a git prompt function
     if declare -f __git_ps1 >/dev/null; then
