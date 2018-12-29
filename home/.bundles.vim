@@ -21,7 +21,14 @@
  Plugin 'nathanaelkane/vim-indent-guides'
  Plugin 'mhinz/vim-signify'
  Plugin 'jeffkreeftmeijer/vim-numbertoggle'
- Plugin 'fatih/vim-go'
+ Plugin 'aliou/bats.vim'
+ Plugin 'editorconfig/editorconfig-vim'
+ Plugin 'ctrlpvim/ctrlp.vim'
+
+ if (v:version > 704 || (v:version == 704 && has('patch2009')))
+	 Plugin 'fatih/vim-go'
+ endif
+
  "Bundle 'L9'
  "Bundle 'FuzzyFinder'
  " non github repos
