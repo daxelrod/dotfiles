@@ -29,9 +29,13 @@ __source_git_extras () {
     if [[ -f "${git_completion_path}" ]]; then source "${git_completion_path}"; fi
     # shellcheck source=/dev/null
     if [[ -f "${git_prompt_path}" ]]; then source "${git_prompt_path}"; fi
+
+    local shorten_directory_path="$HOME/bash-shorten-directory/share/shorten-directory.bash"
+    if [[ -f "${shorten_directory_path}" ]]; then source "${shorten_directory_path}"; fi
 }
 
 __set_prompt () {
+    __source_git_extras
 
     # Only display username if it's not what I assume
     if [[ "$USER" == 'daxelrod' ]]; then
@@ -69,13 +73,18 @@ __set_prompt () {
         local hostname='\h'
     fi
 
+    if declare -f __shorten_directory >/dev/null; then
+        local directory='$(__shorten_directory)' # evaluated at each prompt, not now
+    else
+        local directory='\w'
+    fi
+
     # Set variables for before and after the git prompt separately.
     # This lets us use __git_ps1 as the PROMPT_COMMAND (the only supported way to get color)
     # and also lets us fall back to just the prompt if __git_ps1 isn't available.
-    local before_git="${username}${hostname}:\w" # user @ host : full_directory
+    local before_git="${username}${hostname}:${directory}" # user @ host : directory
     local after_git=' \$ '
 
-    __source_git_extras
     # Check whether __source_git_extras succeeded in finding a git prompt function
     if declare -f __git_ps1 >/dev/null; then
         # shellcheck disable=SC2034  # Used by git-prompt.sh
